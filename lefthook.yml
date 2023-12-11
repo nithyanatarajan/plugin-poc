@@ -1,0 +1,9 @@
+pre-commit:
+  parallel: true
+  commands:
+    check-lint: &check-lint
+      run: make lint
+      fail_text: "Found lint issues"
+    build: &build
+      run: make clean build
+      fail_text: "Unable to build application"

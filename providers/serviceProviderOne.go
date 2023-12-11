@@ -10,6 +10,9 @@ type ServiceProviderOne struct {
 }
 
 func (s *ServiceProviderOne) GetTransactionID() uuid.UUID {
-	s.logger.Debug("\n<<<<<<<<<<<<<<<<<<<<Log from ServiceProviderOne.GetTransactionID>>>>>>>>>>>>>>>>>>>>")
+	msg := "\n<<<<<<<<<<<<<<<<<<<<" +
+		"Log from ServiceProviderOne.GetTransactionID" +
+		">>>>>>>>>>>>>>>>>>>>"
+	s.logger.Debug(msg)
 	return uuid.New()
 }

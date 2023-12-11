@@ -1,8 +1,9 @@
 package shared
 
 import (
-	"github.com/google/uuid"
 	"net/rpc"
+
+	"github.com/google/uuid"
 )
 
 type ServiceProviderRPCClient struct{ client *rpc.Client }

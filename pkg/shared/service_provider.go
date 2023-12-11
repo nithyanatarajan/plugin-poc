@@ -1,9 +1,10 @@
 package shared
 
 import (
+	"net/rpc"
+
 	"github.com/google/uuid"
 	"github.com/hashicorp/go-plugin"
-	"net/rpc"
 )
 
 type ServiceProvider interface {
@@ -18,6 +19,7 @@ func (p *ServiceProviderPlugin) Server(*plugin.MuxBroker) (any, error) {
 	return &ServiceProviderRPCServer{Impl: p.Impl}, nil
 }
 
-func (ServiceProviderPlugin) Client(_ *plugin.MuxBroker, c *rpc.Client) (any, error) {
+func (ServiceProviderPlugin) Client(_ *plugin.MuxBroker, c *rpc.Client) (
+	any, error) {
 	return &ServiceProviderRPCClient{client: c}, nil
 }

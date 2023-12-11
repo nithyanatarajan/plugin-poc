@@ -1,12 +1,13 @@
 package main
 
 import (
+	"os"
+	"reflect"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-plugin"
 	"github.com/nithyanatarajan/plugin-poc/pkg/config"
 	"github.com/nithyanatarajan/plugin-poc/pkg/shared"
-	"os"
-	"reflect"
 )
 
 func main() {
@@ -21,7 +22,8 @@ func main() {
 		logger: logger,
 	}
 	pluginName := reflect.TypeOf(providerOne).Name()
-	logger.Debug("<<<<<<<<<<<<<<<<<<<<Log from Plugin>>>>>>>>>>>>>>>>>>>>", "PLUGIN_NAME", pluginName)
+	logger.Debug("<<<<<<<<<<<<<<<<<<<<Log from Plugin>>>>>>>>>>>>>>>>>>>>",
+		"PLUGIN_NAME", pluginName)
 
 	pluginMap := plugin.PluginSet{
 		config.PluginName: &shared.ServiceProviderPlugin{

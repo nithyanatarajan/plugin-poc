@@ -1,13 +1,15 @@
 package main
 
 import (
+	"errors"
 	"fmt"
-	"github.com/hashicorp/go-hclog"
-	"github.com/nithyanatarajan/plugin-poc/pkg/config"
-	"github.com/nithyanatarajan/plugin-poc/pkg/shared"
 	"log"
 	"os"
 	"os/exec"
+
+	"github.com/hashicorp/go-hclog"
+	"github.com/nithyanatarajan/plugin-poc/pkg/config"
+	"github.com/nithyanatarajan/plugin-poc/pkg/shared"
 
 	"github.com/hashicorp/go-plugin"
 )
@@ -43,10 +45,14 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	psp := raw.(shared.ServiceProvider)
+	psp, ok := raw.(shared.ServiceProvider)
+	if !ok {
+		log.Fatal(errors.New("unable to create ServiceProvider"))
+	}
+
 	fmt.Println()
 	fmt.Println("Calling GetTransactionID")
-	fmt.Printf("\n=======================%s=======================\n", psp.GetTransactionID())
+	fmt.Printf("\n================%s================\n", psp.GetTransactionID())
 	fmt.Println("Called GetTransactionID")
 	fmt.Println()
 }

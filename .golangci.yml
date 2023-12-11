@@ -19,3 +19,7 @@ linters-settings:
       - name: import-alias-naming
         arguments:
           - "^[a-z][a-z0-9]{0,}|[.]{1}$"
+      - name: unhandled-error
+        arguments:
+          - "fmt.Printf"
+          - "fmt.Println"

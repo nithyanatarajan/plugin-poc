@@ -17,7 +17,7 @@ To run the application
 Compile the providers via:
 
 ```shell
-go build -o ./out/providers ./providers/...
+go build -o ./../out/providers
 ```
 
 Compile the driver via:
@@ -29,5 +29,5 @@ go build -o ./out/driver ./cmd
 Launch app via:
 
 ```shell
-./driver
+./out/driver
 ```

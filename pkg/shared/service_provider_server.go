@@ -13,3 +13,8 @@ func (s *ServiceProviderRPCServer) GetTransactionID(_ any, resp *uuid.UUID,
 	*resp = s.Impl.GetTransactionID()
 	return nil
 }
+
+func (s *ServiceProviderRPCServer) GetName(_ any, resp *string) error {
+	*resp = s.Impl.GetName()
+	return nil
+}

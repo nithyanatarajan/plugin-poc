@@ -17,3 +17,13 @@ func (c *ServiceProviderRPCClient) GetTransactionID() uuid.UUID {
 
 	return resp
 }
+
+func (c *ServiceProviderRPCClient) GetName() string {
+	var resp string
+	err := c.client.Call("Plugin.GetName", new(any), &resp)
+	if err != nil {
+		panic(err)
+	}
+
+	return resp
+}

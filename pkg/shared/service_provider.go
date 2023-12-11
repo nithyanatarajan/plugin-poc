@@ -9,6 +9,7 @@ import (
 
 type ServiceProvider interface {
 	GetTransactionID() uuid.UUID
+	GetName() string
 }
 
 type ServiceProviderPlugin struct {

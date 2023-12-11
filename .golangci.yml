@@ -1,0 +1,21 @@
+linters:
+  enable:
+    - goimports
+    - gofmt
+    - goconst
+    - revive
+linters-settings:
+  revive:
+    enable-all-rules: true
+    rules:
+      - name: add-constant
+        disabled: true
+      - name: file-header
+        disabled: true
+      - name: banned-characters
+        disabled: true
+      - name: dot-imports
+        disabled: true
+      - name: import-alias-naming
+        arguments:
+          - "^[a-z][a-z0-9]{0,}|[.]{1}$"

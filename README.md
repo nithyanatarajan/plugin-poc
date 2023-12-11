@@ -9,7 +9,7 @@ This project hosts idea of hosting multiple providers via plugin architecture
 To run the application
 
 ```shell
-./run.sh
+make run
 ```
 
 ### Details
@@ -17,7 +17,7 @@ To run the application
 Compile the providers via:
 
 ```shell
-go build -o ./../out/providers
+go build -C providers -o ../out/providers
 ```
 
 Compile the driver via:

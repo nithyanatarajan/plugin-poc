@@ -27,3 +27,13 @@ func (c *ServiceProviderRPCClient) GetName() string {
 
 	return resp
 }
+
+func (c *ServiceProviderRPCClient) HandleCallback(req []byte) SomeStruct {
+	var resp SomeStruct
+	err := c.client.Call("Plugin.HandleCallback", req, &resp)
+	if err != nil {
+		panic(err)
+	}
+
+	return resp
+}

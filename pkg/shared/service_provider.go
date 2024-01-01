@@ -1,6 +1,7 @@
 package shared
 
 import (
+	"fmt"
 	"net/rpc"
 
 	"github.com/google/uuid"
@@ -10,6 +11,15 @@ import (
 type ServiceProvider interface {
 	GetTransactionID() uuid.UUID
 	GetName() string
+	HandleCallback([]byte) SomeStruct
+}
+
+type SomeStruct struct {
+	Data string
+}
+
+func (s SomeStruct) String() string {
+	return fmt.Sprintf("Data: %v", s.Data)
 }
 
 type ServiceProviderPlugin struct {

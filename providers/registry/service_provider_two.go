@@ -19,6 +19,12 @@ func (*ServiceProviderTwo) GetName() string {
 	return "ServiceProviderTwo"
 }
 
+func (*ServiceProviderTwo) HandleCallback(req []byte) shared.SomeStruct {
+	return shared.SomeStruct{
+		Data: string(req),
+	}
+}
+
 func init() {
 	plugin := shared.ServiceProviderPlugin{
 		Impl: &ServiceProviderTwo{

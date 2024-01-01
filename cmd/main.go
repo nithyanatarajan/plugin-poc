@@ -57,5 +57,13 @@ func main() {
 		fmt.Printf("\n=========%s=========\n", psp.GetTransactionID())
 		fmt.Printf("Called GetTransactionID of %s", provider)
 		fmt.Println()
+
+		fmt.Println()
+		fmt.Printf("Calling HandleCallback of %s", provider)
+		data := fmt.Sprintf("This is the data passed to handle callback of %v",
+			psp.GetName())
+		fmt.Printf("\n=========%s=========\n", psp.HandleCallback([]byte(data)))
+		fmt.Printf("Called HandleCallback of %s", provider)
+		fmt.Println()
 	}
 }

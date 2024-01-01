@@ -18,3 +18,9 @@ func (s *ServiceProviderRPCServer) GetName(_ any, resp *string) error {
 	*resp = s.Impl.GetName()
 	return nil
 }
+
+func (s *ServiceProviderRPCServer) HandleCallback(req []byte,
+	resp *SomeStruct) error {
+	*resp = s.Impl.HandleCallback(req)
+	return nil
+}
